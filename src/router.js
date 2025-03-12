@@ -16,37 +16,32 @@ import RegistarVenda from "./pages/servicos/vendas/RegistarVendas";
 
 export default function AppRouter() {
   return (
-    <Router>
+    <Router basename="/Mbchiken"> {/* Definindo o basename */}
       <Routes>
-        
-        <Route path="/" element={<Dashboard/>}>
-        </Route>
+        <Route path="/" element={<Dashboard/>} />
         <Route path="/registarclientes" element={<RegistarClientes />} />
-        <Route path="/clientesview" element={<ClientesView/>}></Route>
+        <Route path="/clientesview" element={<ClientesView/>} />
         <Route path="/registar-clientes/:id" element={<RegistarClientes />} />
 
         <Route path="/registarlotes" element={<RegistarLotes />} />
-        <Route path="/lotesview" element={<LoteView/>}></Route>
-         <Route path="/registar-lotes/:id" element={<RegistarLotes />} />
+        <Route path="/lotesview" element={<LoteView/>} />
+        <Route path="/registar-lotes/:id" element={<RegistarLotes />} />
 
         <Route path="/registarmordalidade" element={<RegistarMortalidade />} />
-        <Route path="/mordalidadeview" element={<MortalidadeView/>}></Route>
-         <Route path="/registar-mortalidade/:id" element={<RegistarMortalidade />} />
+        <Route path="/mordalidadeview" element={<MortalidadeView/>} />
+        <Route path="/registar-mortalidade/:id" element={<RegistarMortalidade />} />
 
         <Route path="/registarstock" element={<RegistarStock />} />
-        <Route path="/stockview" element={<StockView/>}></Route>
-         <Route path="/registar-stock/:id" element={<RegistarStock />} />
+        <Route path="/stockview" element={<StockView/>} />
+        <Route path="/registar-stock/:id" element={<RegistarStock />} />
 
-        <Route path="/registarproducao" element={<RegistaProducao />} /> 
-        <Route path="/producaoview" element={<ProducaoView/>}></Route>
-          <Route path="/registar-producao/:id" element={<RegistaProducao />} />
+        <Route path="/registarproducao" element={<RegistaProducao />} />
+        <Route path="/producaoview" element={<ProducaoView/>} />
+        <Route path="/registar-producao/:id" element={<RegistaProducao />} />
 
-        <Route path="/registarvendas" element={<RegistarVenda />} /> 
-        <Route path="/vendasview" element={<VendasView/>}></Route>
-          <Route path="/registar-venda/:id" element={<RegistarVenda />} />
-
-
-
+        <Route path="/registarvendas" element={<RegistarVenda />} />
+        <Route path="/vendasview" element={<VendasView/>} />
+        <Route path="/registar-venda/:id" element={<RegistarVenda />} />
       </Routes>
     </Router>
   );
