@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/viriato83/Mbchiken.git/static/css/main.039bba41.css",
-    "main.js": "/viriato83/Mbchiken.git/static/js/main.58a9be9d.js",
-    "static/js/151.d65c11f2.chunk.js": "/viriato83/Mbchiken.git/static/js/151.d65c11f2.chunk.js",
-    "index.html": "/viriato83/Mbchiken.git/index.html",
-    "main.039bba41.css.map": "/viriato83/Mbchiken.git/static/css/main.039bba41.css.map",
-    "main.58a9be9d.js.map": "/viriato83/Mbchiken.git/static/js/main.58a9be9d.js.map",
-    "151.d65c11f2.chunk.js.map": "/viriato83/Mbchiken.git/static/js/151.d65c11f2.chunk.js.map"
+    "main.css": "/Mbchiken/static/css/main.039bba41.css",
+    "main.js": "/Mbchiken/static/js/main.2786c964.js",
+    "static/js/151.d65c11f2.chunk.js": "/Mbchiken/static/js/151.d65c11f2.chunk.js",
+    "index.html": "/Mbchiken/index.html",
+    "main.039bba41.css.map": "/Mbchiken/static/css/main.039bba41.css.map",
+    "main.2786c964.js.map": "/Mbchiken/static/js/main.2786c964.js.map",
+    "151.d65c11f2.chunk.js.map": "/Mbchiken/static/js/151.d65c11f2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.039bba41.css",
-    "static/js/main.58a9be9d.js"
+    "static/js/main.2786c964.js"
   ]
 }
