@@ -1,0 +1,699 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(226, 211, 183);
+}
+
+header{
+    
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    height: 100px;
+    position: fixed;
+    z-index: 11;
+}
+header h1{
+   color: white;
+    font-size: 25px;
+    text-align: center;
+    /* position: fixed; */
+    right: 35%;
+}
+.navbar{
+    background-color: #000000ee;
+    width: 240px;
+  margin-left: -11px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  float: left;
+  top: 0;
+  left: 0%;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  z-index: 10;
+  color:rgb(255, 255, 255)
+
+
+}
+section{
+    display: flex;
+    justify-content: space-around;
+
+  justify-content: flex-start; 
+  padding: 0;
+  margin: auto;
+  min-height: 100vh;
+ 
+}
+.content{
+    display: flex;
+    /* flex-wrap: wrap; */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    /* border-radius: 12px; */
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-right: -10px;
+    margin-top: 110px;
+}
+.navbar ul {
+    list-style: none;
+    padding: 20px;
+    padding-top:100px ;
+   
+  }
+  
+  .navbar ul li {
+    margin: 20px 0;
+  }
+  
+  .navbar ul li  {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s, padding-left 0.3s ease;
+  }
+  .navbar ul li:hover {
+    background-color: #b43313;
+    transform: translateX(5px);
+    padding-left: 20px; /* Adiciona um efeito de recuo suave */
+  }
+  
+  .navbar-toggler{
+    display: none ;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #fff;
+    padding: 8px;
+    cursor: pointer;
+    position: fixed;
+    top: 26px;
+    left: 15px;
+    z-index: 1000;
+    width: auto; /* Remove largura fixa */
+    height: auto; /* Remove altura fixa */
+    
+  }
+  
+.dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    list-style: none;
+    padding-left: 20px;
+    margin-left: 15px;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .dropdown-menu.show {
+    max-height: 200px;
+    opacity: 1;
+    background-color:  #000000ee;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+  }
+  
+  .toggle-menu {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s ease;
+  }
+  
+  .toggle-menu:hover {
+    color: #52d6a4;
+  }
+  
+  @keyframes slideDown {
+    from {
+      max-height: 0;
+      opacity: 0;
+    }
+    to {
+      max-height: 300px;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      max-height: 300px;
+      opacity: 1;
+    }
+    to {
+      max-height: 0;
+      opacity: 0;
+    }
+  }
+  
+  .dropdown-menu {
+    animation: slideUp 0.3s ease forwards;
+  }
+  
+  .dropdown-menu.show {
+    animation: slideDown 0.3s ease forwards;
+  }
+  
+  .dropdown-menu li:hover {
+    color: #dde3e2;
+  }
+  .dropdown-menu li{
+    padding: 0;
+
+  }
+  .btn.cadastrar{
+    background-color: #e6431b;
+    padding: 10px 60px;
+ 
+
+  }
+  .bt.input-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .mensagem{
+    display: flex;
+     justify-content: center;
+    margin-top: 40px;
+    z-index: 9;
+  
+  
+
+  }
+.mensagem button{
+   
+     
+     background-color: transparent;
+      }
+      footer {
+        background-color: #000;
+        color: white;
+        text-align: center;
+        padding: 5px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+  .crud{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center!important;
+    text-align: center !important;
+  }
+  .crud button:active{
+    opacity: 0.5;
+    
+  }
+  .crud button{
+    min-width: 70px;
+    color: #000;
+    text-align: center;
+
+  }
+  .crud button:hover{
+    color: #dde3e2;
+
+  }
+  table th{ 
+    background-color: #b43313 !important;
+    color: #dde3e2 !important;
+  }
+ .btn-export{
+  background-color: #b43313 !important;
+
+ }
+ table{
+  text-align: center;
+ }
+ 
+/* Fundo escuro para o modal */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Estilização do modal */
+.modal-dialog {
+  background: white;
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cabeçalho do modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Corpo do modal */
+.modal-body {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+}
+
+/* Botões */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.sim, .nao {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sim {
+  background: #28a745;
+  color: white;
+}
+
+.sim:hover {
+  background: #218838;
+}
+
+.nao {
+  background: #dc3545;
+  color: white;
+}
+
+.nao:hover {
+  background: #c82333;
+}
+
+/* Botão de fechar */
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  color: red;
+}
+
+.loading-spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0; /* Alinha corretamente a sobrecarga à tela inteira */
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Fundo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+}
+
+.loading-spinner-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Fundo semitransparente */
+  filter: blur(5px); /* Aplica o desfoque ao fundo */
+  z-index: -1; /* Coloca o desfoque atrás do conteúdo */
+}
+
+.spinner {
+  /* Aqui você pode estilizar seu spinner, por exemplo: */
+  width: 50px;
+  height: 50px;
+  border: 4px solid #fff;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.spinner-border.text-primary{
+  color: #b43313 !important;
+}
+input.edit2{
+width: 80px;
+margin-left: 40px;
+}
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+/* Dashboard */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* display: grid; */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+  .card {
+      background-color: #b43313!important;
+      color: white;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      box-shadow:1px 1px 1px black ;
+      width: 200px;
+      min-width: 150px;
+  }
+  .card h3,.card p{
+    color: white;
+  }
+  
+  .card:hover {
+      transform: scale(1.05);
+  }
+  
+  .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+  }
+  
+  .card p {
+      font-size: 2rem;
+      font-weight: bold;
+  }
+  
+  /* Ajustes para o Gráfico */
+  .chart-container {
+      max-width: 800px;
+      margin: 0 auto; /* Centraliza o gráfico */
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  canvas {
+      width: 100% !important;
+      height: 400px !important;
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .sair{
+      position: absolute;
+      left: 90%;
+      /* top:10%; */
+      background-color: transparent;
+      padding: 8px 20px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+  }
+  .sair:active{
+    opacity: 0.8;
+    color:red;
+  }
+  
+.usuario{
+  position: absolute;
+
+  left: 4%;
+  border-radius: 100%;
+  padding: 20px;
+  background-color: #005f79;
+     
+  
+}
+
+  @media screen  and (max-width: 480px) {
+   
+    .content{
+        margin-left: -230px !important;
+        
+        overflow: auto;
+    }
+    .navbar{
+        position: fixed;
+        left: -260px;
+    
+    }
+     .navbar.open{
+        transition: transform 0.4s;
+       transform: translateX(260px) ; /* Efeito de transição para esquerda */
+     }
+     .navbar.close{
+         transition: transform 0.4s;
+         transform: translateX(-260px); 
+     }
+     .navbar ul{
+      position: fixed;
+      top: -00px;
+     }
+      .navbar-toggler svg{
+        color: #ffffff;
+      
+      }
+      .navbar-toggler{
+          display: flex;
+          /* background: transparent; */
+          border: none;
+          font-size: 28px;
+          color: #ffffff;
+          padding: 8px;
+          cursor: pointer;
+          position: fixed;
+          top: 50px;
+          left: 15px;
+          z-index: 1000;
+          width: auto; /* Remove largura fixa */
+          height: auto; /* Remove altura fixa */
+
+        }
+        .navbar-toggler.open {
+          transform: rotate(90deg); /* Efeito de rotação */
+          backdrop-filter: blur(3px); /* Desfoque elegante */
+          transition: transform 0.3s ease, backdrop-filter 0.3s ease; /* Transições suaves */
+         
+        }
+        header h1{
+          font-size: 15px;
+          position: absolute;
+          left: 40%;
+        }
+        footer{
+        
+          z-index: 2;
+        }
+        header .sair{
+          position: absolute;
+          left: 82%;
+          padding: 7px 8px ;
+          top: 60px;
+      
+        }
+        header .usuario{
+          font-size: 15px;
+          position: absolute;
+      
+          left: 82%;
+          top:10px;
+          border-radius: 100%;
+          padding: 10px;
+          background-color: #b43313;
+        }
+      
+        
+    }
+    /* Estilos gerais da seção de login */
+.login-section {
+  background-color: #f4f4f4;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Cabeçalho */
+.login-header {
+  text-align: center;
+  background-color: #b43313;
+  color: #fff;
+  padding: 10px;
+  width: 360px;
+  border-radius: 5px 5px 0 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Corpo do formulário */
+.login-body {
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 360px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+/* Animação para o formulário */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grupo de entradas (inputs) */
+.login-input-group {
+  margin-bottom: 20px;
+}
+
+.login-input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.login-input-group input {
+  width: 93%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.login-input-group input:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 121, 107, 0.5);
+  outline: none;
+  border: 1px solid #22628d;
+}
+
+/* Botão de login */
+.login-button {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #b43313 !important;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #2e7fb6;
+  transform: scale(1.02);
+}
+
+.login-button:active {
+  background-color: #2e7fb6;
+
+  transform: scale(0.98);
+}
+
+/* Mensagem de erro */
+.login-error {
+  color: #d32f2f;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  animation: fadeError 0.3s ease-in-out;
+}
+
+/* Animação para a mensagem de erro */
+@keyframes fadeError {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+/* Logo da seção de login */
+.login-logo img {
+  width: 250px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

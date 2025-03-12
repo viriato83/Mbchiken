@@ -1,0 +1,245 @@
+
+import mensagem from "../../../components/mensagem";
+
+export class repositorioProdcao{
+
+    
+    constructor(){
+        this.endpoint ="http://localhost:8081/mbchicken/producao"
+        this.token=sessionStorage.getItem("token");
+        this.mensagem= new mensagem();
+       
+    }
+    async cadastrar(producao) {
+        try {
+          let res = await fetch(this.endpoint, {  // Adicione 'await'
+            method:"POST",
+            body: JSON.stringify(producao),
+            headers: {
+              // "Authorization":  `Bearer ${this.token}`,
+              'Content-Type': 'application/json'
+            }
+          });
+    
+          if (res.ok) {  // Use 'res.ok' em vez de 'res.status == 200'
+            console.log("Cadastro feito com sucesso");
+            this.mensagem.sucesso("cadastro feito com sucesso")
+
+          } else {
+            console.log("Erro ao cadastrar:", res.status);
+           this.mensagem.Erro("Erro ao cadastrar")
+          }
+        } catch (e) {
+          console.error("Erro no cadastro:", e);
+        
+        }
+      }
+    
+      async  leitura() {
+        try {
+          const res = await fetch(this.endpoint, {  // Adicione 'await' e utilize o this.endpoint
+            method: 'GET',
+            
+            headers: {
+              'Authorization': `Bearer ${this.token}`,
+              'Content-Type': 'application/json'
+            }
+          });
+    
+          if (res.status== 200) {
+            const data = await res.json();
+                    
+    
+            // console.log('Dados recebidos:', data);
+            return data;
+          } else {
+            console.log('Erro ao fazer a leitura:', res.status);
+            this.mensagem.Erro("Erro ao fazer a leitura")
+            return [];
+          }
+        } catch (err) {
+          console.error('Erro ao fazer a leitura:', err);
+          return [];
+        }
+      } 
+      async buscarproducao(){
+        try {
+            const res = await fetch("http://localhost:8081/aquafish/mercadoria", {  // Adicione 'await' e utilize o this.endpoint
+              method: 'GET',
+              
+              headers: {
+                'Authorization': `Bearer ${this.token}`,
+                'Content-Type': 'application/json'
+              }
+            });
+      
+            if (res.status== 200) {
+              const data = await res.json();
+                      
+      
+              // console.log('Dados recebidos:', data);
+              return data;
+            } else {
+              console.log('Erro ao fazer a leitura:', res.status);
+             
+              return [];
+            }
+          } catch (err) {
+            console.error('Erro ao fazer a leitura:', err);
+            return [];
+          }
+            
+      }
+    
+      async buscarmortalidadee(){
+        try {
+            const res = await fetch("http://localhost:8080/aquafish/clientes", {  // Adicione 'await' e utilize o this.endpoint
+              method: 'GET',
+              
+              headers: {
+                'Authorization': `Bearer ${this.token}`,
+                'Content-Type': 'application/json'
+              }
+            });
+      
+            if (res.status== 200) {
+              const data = await res.json();
+                      
+      
+              console.log('Dados recebidos:', data);
+              return data;
+            } else {
+              console.log('Erro ao fazer a leitura:', res.status);
+             
+              return [];
+            }
+          } catch (err) {
+            console.error('Erro ao fazer a leitura:', err);
+            return [];
+          }
+            
+      }
+    
+    
+    
+      async editar(Id, mortalidade) {
+        try {
+          let res = await fetch(this.endpoint, {  // Adicione 'await' e corrija o endpoint
+            method: "PUT", 
+            headers: {
+              "Authorization": "Bearer " + this.token,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: Id ,...mortalidade}) 
+           
+          });
+          // console.log(JSON.stringify({ id: Id ,...mortalidade}))
+    
+          if (res.status===200) {
+            console.log("Editado com sucesso"); 
+       
+            return true;
+          } else {
+            this.mensagem.Erro("Erro ao editar");
+            console.log("Erro ao editar:", res.status);
+             if(res.status ===400){
+
+               window.alert("Erro ao editar o Id nao existe",res.status);
+             }
+            
+            return false;
+          }
+        } catch (e) {
+            console.log("Erro ao editar:", e);
+     
+          return false;
+
+        }
+      }
+      async editar2(Id, peso,racao) {
+        try {
+          let res = await fetch(this.endpoint, {  // Adicione 'await' e corrija o endpoint
+            method: "PUT", 
+            headers: {
+              "Authorization": "Bearer " + this.token,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: Id ,peso:peso,consumo_racao:racao}) 
+           
+          });
+        //   console.log(JSON.stringify({ id: Id ,...mortalidade}))
+    
+          if (res.status===200) {
+            console.log("Editado com sucesso"); 
+            this.mensagem.sucesso("Editado com sucesso");  
+            return true;
+          } else {
+            this.mensagem.Erro("Erro ao editar");
+            console.log("Erro ao editar:", res.status);
+             if(res.status ===400){
+
+               window.alert("Erro ao editar o Id nao existe",res.status);
+             }
+            
+            return false;
+          }
+        } catch (e) {
+            console.log("Erro ao editar:", e);
+     
+          return false;
+
+        }
+      }
+    
+      async deletar(Id) {  // Renomeado de 'editar' para 'deletar'
+        try {
+          let res = await fetch(`${this.endpoint}/${Id}`,{  // Adicione 'await' e corrija o endpoint
+            method: "DELETE",
+            headers: {
+              "Authorization": "Bearer " + this.token,
+              'Content-Type': 'application/json'
+            }
+          });
+    
+          if (res.status==200) {
+            console.log("Deletado com sucesso");
+            this.mensagem.sucesso("Deletado com sucesso"); 
+            window.location.reload()
+            return true;
+          } else {
+            console.log("Erro ao deletar:", res.status);
+            this.mensagem.Erro("Erro ao deletar"); 
+            return false;
+          }
+        } catch (e) {
+          console.error("Erro ao deletar:", e);
+          return false;
+        }
+      }
+      async total() {  // Renomeado de 'editar' para 'deletar'
+        try {
+          let res = await fetch(this.endpoint+"/total", {  // Adicione 'await' e corrija o endpoint
+            method: "GET",
+            headers: {
+              "Authorization": "Bearer " + this.token,
+              'Content-Type': 'application/json'
+            }
+          });
+    
+          if (res.status==200) {
+           let data= await res.json()
+            return data;
+          } else {
+            console.log("Erro ao total:", res.status);
+            return false;
+          }
+        } catch (e) {
+          console.error("Erro ao total:", e);
+          return false;
+        }
+      }
+
+
+
+
+}
